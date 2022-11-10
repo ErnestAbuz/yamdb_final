@@ -1,3 +1,13 @@
+from api.v1.filters import TitlesFilter
+from api.v1.permissions import (IsAdmin, IsAdminOrReadOnly,
+                                ReviewCommentOrReadOnly)
+from api.v1.serializers import (CategoriesSerializer, CommentSerializer,
+                                CommonSerializer, EmailVerifySerializer,
+                                GenreSerializer, ReviewSerializer,
+                                SignUpSerializer, TitlePostSerializer,
+                                TitleViewSerializer, UpdateUserSerializer)
+from api.v1.viewsets import CreateListDestroyViewset
+from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
@@ -6,27 +16,11 @@ from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.permissions import (IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
-from django.contrib.auth.tokens import default_token_generator
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from api.v1.filters import TitlesFilter
-from api.v1.viewsets import CreateListDestroyViewset
-from api.v1.permissions import (
-    IsAdminOrReadOnly,
-    ReviewCommentOrReadOnly,
-    IsAdmin
-)
-from reviews.models import Category, Genre, Title, Review
+from reviews.models import Category, Genre, Review, Title
 from users.models import User
 
-from api.v1.serializers import (
-    CommonSerializer, CategoriesSerializer,
-    CommentSerializer, EmailVerifySerializer,
-    GenreSerializer, ReviewSerializer, SignUpSerializer,
-    TitlePostSerializer, TitleViewSerializer,
-    UpdateUserSerializer
-)
 from api_yamdb.settings import ADMIN_EMAIL
 
 
