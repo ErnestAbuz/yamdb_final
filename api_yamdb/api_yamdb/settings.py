@@ -14,7 +14,11 @@ if SECRET_KEY is None:
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["51.250.64.159"]
+ALLOWED_HOSTS = [
+    "51.250.64.159",
+    "localhost",
+    "*"
+]
 
 
 INSTALLED_APPS = [
