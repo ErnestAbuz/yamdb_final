@@ -2,7 +2,7 @@
 ![example workflow](https://github.com/ErnestAbuz/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 <p align="center">
-  <a>CI и CD проекта api_yamdb</a> •
+  <a>CI и CD проекта api_yamdb</a>
 </p>
 
 # Описание проекта.
